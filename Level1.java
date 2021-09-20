@@ -18,6 +18,7 @@ public class Level1 extends World
         super(1200, 800, 1, false); 
         prepare();
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -25,12 +26,28 @@ public class Level1 extends World
     private void prepare() 
     {
         setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class,Door.class, HUD.class);
-        Door door = new Door();
-        addObject(door,663,66);
         Player player = new Player();
-        addObject(player,26,664);
-        player.setLocation(34,692);
-        door.setLocation(1126,75);
-        door.setLocation(1179,41);
+        addObject(new Player(), 43, 760);
+        Floor floor = new Floor
+        addObject(new Floor(), 600, 800);
+        addObject(new Rock(), 439, 780); 
+        SmBrickWall smBrickWall = new SmBrickWall();
+        addObject(smBrickWall,577,725);
+        SmBrickWall smBrickWall2 = new SmBrickWall();
+        addObject(smBrickWall2,788,677);
+        TrapDoor trapDoor = new TrapDoor();
+        addObject(trapDoor,1000,630);
+        BrickWall brickWall = new BrickWall();
+        addObject(brickWall,387,550);
+        Bomb bomb = new Bomb();
+        addObject(bomb,176,496);
+        SmBrickWall smBrickWall3 = new SmBrickWall();
+        addObject(smBrickWall3,124,390);
+        BrickWall brickWall2 = new BrickWall();
+        addObject(brickWall2,588,284);
+        SmBrickWall smBrickWall4 = new SmBrickWall();
+        addObject(smBrickWall4,1135,211);
+        Door door = new Door();
+        addObject(door,1167,147);
     }
 }
