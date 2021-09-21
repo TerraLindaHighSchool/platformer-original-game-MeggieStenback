@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
+    private final float GRAVITY = 0.667f;
+    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
     /**
      * Constructor for objects of class BrickWorld.
      * 
@@ -19,35 +21,43 @@ public class Level1 extends World
         prepare();
     }
     
+    public void act()
+    {
+        spawn();
+    }
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
      */
     private void prepare() 
     {
-        setPaintOrder(Player.class, Platform.class, Obstacle.class, Collectable.class,Door.class, HUD.class);
-        Player player = new Player();
-        addObject(new Player(), 43, 760);
-        Floor floor = new Floor
-        addObject(new Floor(), 600, 800);
-        addObject(new Rock(), 439, 780); 
-        SmBrickWall smBrickWall = new SmBrickWall();
-        addObject(smBrickWall,577,725);
-        SmBrickWall smBrickWall2 = new SmBrickWall();
-        addObject(smBrickWall2,788,677);
-        TrapDoor trapDoor = new TrapDoor();
-        addObject(trapDoor,1000,630);
-        BrickWall brickWall = new BrickWall();
-        addObject(brickWall,387,550);
-        Bomb bomb = new Bomb();
-        addObject(bomb,176,496);
-        SmBrickWall smBrickWall3 = new SmBrickWall();
-        addObject(smBrickWall3,124,390);
-        BrickWall brickWall2 = new BrickWall();
-        addObject(brickWall2,588,284);
-        SmBrickWall smBrickWall4 = new SmBrickWall();
-        addObject(smBrickWall4,1135,211);
-        Door door = new Door();
-        addObject(door,1167,147);
+        addObject(new Player(),43,760);
+        addObject(new Door(),1165,50);
+        addObject(new Floor(),600,800);
+        addObject(new BrickWall(),1130,685);
+        addObject(new BrickWall(),550,370);
+        addObject(new BrickWall(),1040,100);
+        addObject(new SmBrickWall(),470,575);
+        addObject(new SmBrickWall(),100,505);
+        addObject(new SmBrickWall(),680,235);
+        addObject(new SmBrickWall(),360,510);
+        addObject(new Gem(),900,760);
+        addObject(new Gem(),800,760);
+        addObject(new Gem(),130,460);
+        addObject(new TrapDoor(GRAVITY),305,605);
+        addObject(new Bomb(GRAVITY),65,460);
+    }
+    
+    private void spawn()
+    {
+        if(Math.random() < 0.0025)
+        {
+            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+        
+        if(Math.random() < 0.01)
+        {
+            addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
     }
 }
