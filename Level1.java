@@ -31,7 +31,7 @@ public class Level1 extends World
      */
     private void prepare() 
     {
-        addObject(new Player(),43,760);
+        addObject(new Player(3, 5.6f, GRAVITY, 3, 3,Level2.class, MUSIC),43,760);
         addObject(new Door(),1165,50);
         addObject(new Floor(),600,800);
         addObject(new BrickWall(),1130,685);
