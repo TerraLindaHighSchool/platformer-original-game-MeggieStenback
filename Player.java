@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * Write a description of class Player here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Meggie Stenback) 
+ * @version (9/28/2)
  */
 public class Player extends Actor
 {
@@ -48,15 +48,74 @@ public class Player extends Actor
    
     public void act()
     {
-        animator();
-        move(speed);
+        walk();
+        jump();
+        fall();
+        onCollision();
+        gameOver();
     }
     
     public void addedToWorld(World world) {}
     
-    private void walk() {}
-    private void jump() {}
-    private void fall() {}
+    private void walk()
+    {
+        if(isWalking)
+        {
+            animator();
+        }
+        else
+        {
+            setImage(STANDING_IMAGE);
+            walkIndex = 0;
+        }
+        
+        if(Greenfoot.isKeyDown("right"))
+        {
+            if(isFacingLeft)
+            {
+                mirrorImages();
+            }
+            isWalking = true;
+            isFacingLeft = false;
+            move(speed);
+        }
+        
+        if(Greenfoot.isKeyDown("left"))
+        {
+            isWalking = true;
+            isFacingLeft = true;
+            move(-speed);
+        }
+    }
+    
+    private void jump() 
+    {
+        if(Greenfoot.isKeyDown("space") && isOnGround())
+        {
+            yVelocity = JUMP_FORCE;
+            isJumping= true;
+        }
+        
+        if(isJumping && yVelocity > 0)
+        {
+            setLocation(getX(), getY() - (int) yVelocity);
+            yVelocity -=GRAVITY;
+        }
+        else
+        {
+            isJumping = false;
+        }
+    }
+    
+    private void fall() 
+    {
+        if(!isJumping && !isOnGround())
+        {
+            setLocation(getX(), getY() - (int) yVelocity);
+            yVelocity -= GRAVITY;
+        }
+    }
+    
     private void animator()
     {
         if(frame % (15 - 2 * speed) == 0)
@@ -72,11 +131,22 @@ public class Player extends Actor
             }
     }
     frame++;
-}
+    }
+    
     private void onCollision() {}
-    private void gameOVer() {}
+    
+    private void mirrorImages()
+    {
+        for(int i = 0; i < WALK_ANIMATION.length; i++)
+        {
+            WALK_ANIMATION[i].mirrorHorizontally();
+        }
+    }
+    private void gameOver() {}
+    
     private boolean isOnGround()
     {
-        return false;
+        Actor ground = getOneObjectAtOffset(0, getImage().getHeight() / 2, Platform.class);
+        return ground != null;
     }
 }
