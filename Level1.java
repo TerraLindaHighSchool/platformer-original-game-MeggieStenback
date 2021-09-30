@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
-    private final float GRAVITY = 0.667f;
+    private final float GRAVITY = 0.1f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
     /**
      * Constructor for objects of class BrickWorld.
@@ -25,6 +25,7 @@ public class Level1 extends World
     {
         spawn();
     }
+    
     /**
      * Prepare the world for the start of the program.
      * That is: create the initial objects and add them to the world.
@@ -41,6 +42,7 @@ public class Level1 extends World
         addObject(new SmBrickWall(),100,505);
         addObject(new SmBrickWall(),680,235);
         addObject(new SmBrickWall(),360,510);
+        addObject(new SmBrickWall(),715,630);
         addObject(new Gem(),900,760);
         addObject(new Gem(),800,760);
         addObject(new Gem(),130,460);
