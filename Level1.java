@@ -10,7 +10,12 @@ public class Level1 extends World
 {
     private final float GRAVITY = 0.1f;
     private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
-    /**
+    private final int SPEED = 3;
+    private final float JUMP_FORCE = 5.6f;
+    private final int MAX_HEALTH = 3;
+    private final int MAX_POWERUP = 3;
+    private final Class NEXT_LEVEL = Level2.class;
+        /**
      * Constructor for objects of class BrickWorld.
      * 
      */
@@ -32,17 +37,18 @@ public class Level1 extends World
      */
     private void prepare() 
     {
-        addObject(new Player(3, 5.6f, GRAVITY, 3, 3,Level2.class, MUSIC),43,760);
+        Player player = new Player(SPEED, JUMP_FORCE, GRAVITY,MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
+        addObject(player,40,745);
         addObject(new Door(),1165,50);
-        addObject(new Floor(),600,800);
-        addObject(new BrickWall(),1130,685);
-        addObject(new BrickWall(),550,370);
-        addObject(new BrickWall(),1040,100);
-        addObject(new SmBrickWall(),470,575);
-        addObject(new SmBrickWall(),100,505);
-        addObject(new SmBrickWall(),680,235);
-        addObject(new SmBrickWall(),360,510);
-        addObject(new SmBrickWall(),715,630);
+        addObject(new MoonFloor(),600,800);
+        addObject(new MoonWall(),1130,685);
+        addObject(new MoonWall(),600,370);
+        addObject(new MoonWall(),1040,100);
+        addObject(new SmMoonWall(),470,575);
+        addObject(new SmMoonWall(),100,505);
+        addObject(new SmMoonWall(),680,235);
+        addObject(new SmMoonWall(),360,510);
+        addObject(new SmMoonWall(),715,630);
         addObject(new Gem(),900,760);
         addObject(new Gem(),800,760);
         addObject(new Gem(),130,460);
