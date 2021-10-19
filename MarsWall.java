@@ -1,15 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Collectable here.
+ * Write a description of class MarsWall here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Collectable extends Actor
+public class MarsWall extends Platform
 {
     /**
-     * Act - do whatever the Collectable wants to do. This method is called whenever
+     * Act - do whatever the MarsWall wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act()

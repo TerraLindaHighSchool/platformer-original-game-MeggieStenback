@@ -9,7 +9,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends Actor
 {
     private Health[] health;
-    private Powerup[] powerup;
     private int healthCount;
     private int speed;
     private int walkIndex;
@@ -98,6 +97,10 @@ public class Player extends Actor
         
         if(Greenfoot.isKeyDown("left"))
         {
+            if(!isFacingLeft)
+            {
+                mirrorImages();
+            }
             isWalking = true;
             isFacingLeft = true;
             move(-speed);
@@ -177,11 +180,6 @@ public class Player extends Actor
             getWorld().removeObject(health[healthCount - 1]);
             healthCount--;
             Greenfoot.playSound("explosionSmall.wav");
-        }
-        
-        if(isTouching(Collectable.class))
-        {
-            removeTouching(Collectable.class);
         }
         
         if(isTouching(Platform.class) && !isOnGround())

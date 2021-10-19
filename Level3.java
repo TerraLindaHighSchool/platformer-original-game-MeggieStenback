@@ -6,20 +6,20 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Level2 extends World
+public class Level3 extends World
 {
-    private final float GRAVITY = 0.14f;
-    private final GreenfootSound MUSIC = new GreenfootSound("mars-song.mp3");
+    private final float GRAVITY = 0.146f;
+    private final GreenfootSound MUSIC = new GreenfootSound("jupiter-song.mp3");
     private final int SPEED = 3;
-    private final float JUMP_FORCE = 5.8f;
+    private final float JUMP_FORCE = 6f;
     private final int MAX_HEALTH = 3;
     private final int MAX_POWERUP = 3;
-    private final Class NEXT_LEVEL = Level3.class;
+    private final Class NEXT_LEVEL = WinSplash.class;
         /**
      * Constructor for objects of class BrickWorld.
      * 
      */
-    public Level2()
+    public Level3()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.
         super(1200, 800, 1, false); 
@@ -39,18 +39,18 @@ public class Level2 extends World
     {
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY,MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
         addObject(player,40,745);
-        addObject(new Door(),1165,130);
+        addObject(new Door(),1165,50);
         addObject(new MarsFloor(),600,800);
-        addObject(new MarsWall(),1130,720);
-        addObject(new MarsWall(),800,490);
-        addObject(new MarsWall(),1040,180);
-        addObject(new SmMarsWall(),500,650);
-        addObject(new SmMarsWall(),100,555);
-        addObject(new SmMarsWall(),775,285);
-        addObject(new SmMarsWall(),875,385);
-        addObject(new SmMarsWall(),360,560);
-        addObject(new SmMarsWall(),715,680);
-        addObject(new MarsTrapDoor(GRAVITY),305,655);
+        addObject(new JupiterWall(),1130,735);
+        addObject(new JupiterWall(),800,490);
+        addObject(new JupiterWall(),1040,225);
+        addObject(new SmJupiterWall(),500,650);
+        addObject(new SmJupiterWall(),100,555);
+        addObject(new SmJupiterWall(),700,345);
+        addObject(new SmJupiterWall(),900,375);
+        addObject(new SmJupiterWall(),360,560);
+        addObject(new SmJupiterWall(),715,680);
+        addObject(new JupiterTrapDoor(GRAVITY),305,655);
         addObject(new Bomb(GRAVITY),65,510);
     }
     

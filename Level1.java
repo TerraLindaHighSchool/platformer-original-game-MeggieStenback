@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Level1 extends World
 {
-    private final float GRAVITY = 0.1f;
-    private final GreenfootSound MUSIC = new GreenfootSound("zapsplat_024.mp3");
+    private final float GRAVITY = .1f;
+    private final GreenfootSound MUSIC = new GreenfootSound("moon-song.mp3");
     private final int SPEED = 3;
     private final float JUMP_FORCE = 5.6f;
     private final int MAX_HEALTH = 3;
@@ -49,9 +49,6 @@ public class Level1 extends World
         addObject(new SmMoonWall(),680,235);
         addObject(new SmMoonWall(),360,510);
         addObject(new SmMoonWall(),715,630);
-        addObject(new Gem(),900,760);
-        addObject(new Gem(),800,760);
-        addObject(new Gem(),130,460);
         addObject(new TrapDoor(GRAVITY),305,605);
         addObject(new Bomb(GRAVITY),65,460);
     }
@@ -61,11 +58,6 @@ public class Level1 extends World
         if(Math.random() < 0.0025)
         {
             addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
-        }
-        
-        if(Math.random() < 0.01)
-        {
-            addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
     }
 }
