@@ -157,6 +157,7 @@ public class Player extends Actor
     {
         if(isTouching(Door.class))
         {
+        MUSIC.stop();
         World world = null;
         try 
         {

@@ -39,19 +39,19 @@ public class Level3 extends World
     {
         Player player = new Player(SPEED, JUMP_FORCE, GRAVITY,MAX_HEALTH, MAX_POWERUP, NEXT_LEVEL, MUSIC);
         addObject(player,40,745);
-        addObject(new Door(),1165,50);
+        addObject(new Door(),112,151);
         addObject(new MarsFloor(),600,800);
         addObject(new JupiterWall(),1130,735);
-        addObject(new JupiterWall(),800,490);
-        addObject(new JupiterWall(),1040,225);
-        addObject(new SmJupiterWall(),500,650);
-        addObject(new SmJupiterWall(),100,555);
-        addObject(new SmJupiterWall(),700,345);
-        addObject(new SmJupiterWall(),900,375);
-        addObject(new SmJupiterWall(),360,560);
-        addObject(new SmJupiterWall(),715,680);
-        addObject(new JupiterTrapDoor(GRAVITY),305,655);
-        addObject(new Bomb(GRAVITY),65,510);
+        addObject(new JupiterWall(),809,504);
+        addObject(new JupiterWall(),189,205);
+        addObject(new SmJupiterWall(),495,663);
+        addObject(new SmJupiterWall(),1140,575);
+        addObject(new SmJupiterWall(),545,305);
+        addObject(new SmJupiterWall(),745,370);
+        addObject(new SmJupiterWall(),355,568);
+        addObject(new SmJupiterWall(),670,679);
+        addObject(new JupiterTrapDoor(GRAVITY),253,405);
+        addObject(new Bomb(GRAVITY),1128,549);
     }
     
     private void spawn()
@@ -63,7 +63,7 @@ public class Level3 extends World
         
         if(Math.random() < 0.01)
         {
-            addObject(new AcidRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+            addObject(new DiamondRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
     }
 }
