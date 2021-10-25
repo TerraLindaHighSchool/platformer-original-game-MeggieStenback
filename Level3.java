@@ -47,7 +47,7 @@ public class Level3 extends World
         addObject(new SmJupiterWall(),495,663);
         addObject(new SmJupiterWall(),1140,575);
         addObject(new SmJupiterWall(),545,305);
-        addObject(new SmJupiterWall(),745,370);
+        addObject(new SmJupiterWall(),755,390);
         addObject(new SmJupiterWall(),355,568);
         addObject(new SmJupiterWall(),670,679);
         addObject(new JupiterTrapDoor(GRAVITY),253,405);
