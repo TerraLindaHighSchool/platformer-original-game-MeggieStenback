@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WinSplash extends World
 {
-    private final GreenfootSound MUSIC = new GreenfootSound("moon-song.mp3");
+    private final GreenfootSound MUSIC = new GreenfootSound("winSplash.mp3");
     public WinSplash()
     {    
         // Create a new world with 1200x800 cells with a cell size of 1x1 pixels.

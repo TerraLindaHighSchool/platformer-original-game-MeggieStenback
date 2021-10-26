@@ -12,12 +12,14 @@ public class Player extends Actor
     private int healthCount;
     private int speed;
     private int walkIndex;
+    private int moveIndex;
     private int frame;
     private float yVelocity;
     private boolean isWalking;
     private boolean isJumping;
     private boolean isFacingLeft;
     private final GreenfootImage[] WALK_ANIMATION;
+    private final GreenfootImage[] MOVE_ANIMATION;
     private final GreenfootImage STANDING_IMAGE;
     private final float JUMP_FORCE;
     private final float GRAVITY;
@@ -45,6 +47,12 @@ public class Player extends Actor
                             new GreenfootImage("walk3.png"),
                             new GreenfootImage("walk4.png"),
                             new GreenfootImage("walk5.png")
+                        };
+        MOVE_ANIMATION = new GreenfootImage[]
+                        {
+                            new GreenfootImage("move0.png"),
+                            new GreenfootImage("move1.png"),
+                            new GreenfootImage("move2.png"),
                         };
     }
    
@@ -138,19 +146,33 @@ public class Player extends Actor
     
     private void animator()
     {
-        if(frame % (15 - 2 * speed) == 0)
+    if(frame % (15 - 2 * speed) == 0)
         {
-            if(walkIndex < WALK_ANIMATION.length)
+        if(walkIndex < WALK_ANIMATION.length)
+        {
+            setImage(WALK_ANIMATION[walkIndex]);
+            walkIndex++;
+        }
+        else
+        {
+            walkIndex = 0;
+        }
+        }
+    frame++;
+    }
+    
+    private void rocketAnimator()
+    {
+        if(moveIndex < MOVE_ANIMATION.length)
             {
-                setImage(WALK_ANIMATION[walkIndex]);
-                walkIndex++;
+            setImage(MOVE_ANIMATION[moveIndex]);
+                moveIndex++;
             }
             else
             {
-                walkIndex = 0;
+                moveIndex = 0;
             }
-    }
-    frame++;
+        frame++;
     }
     
     private void onCollision()
@@ -158,6 +180,7 @@ public class Player extends Actor
         if(isTouching(Door.class))
         {
         MUSIC.stop();
+        rocketAnimator();
         World world = null;
         try 
         {

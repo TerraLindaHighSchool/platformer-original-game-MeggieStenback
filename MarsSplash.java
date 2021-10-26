@@ -20,7 +20,7 @@ public class MarsSplash extends World
     
     public void act()
     {
-         nextLevel();        
+         nextLevel();
     }
     
     private void nextLevel()

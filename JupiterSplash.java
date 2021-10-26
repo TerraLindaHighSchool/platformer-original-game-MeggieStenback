@@ -20,7 +20,7 @@ public class JupiterSplash extends World
     
     public void act()
     {
-         nextLevel();        
+         nextLevel();
     }
     
     private void nextLevel()

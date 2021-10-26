@@ -58,7 +58,7 @@ public class Level2 extends World
     {
         if(Math.random() < 0.0025)
         {
-            addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+            addObject(new MarsRock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
         
         if(Math.random() < 0.01)

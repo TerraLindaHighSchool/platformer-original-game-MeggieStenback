@@ -61,9 +61,25 @@ public class Level3 extends World
             addObject(new Rock(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
         
-        if(Math.random() < 0.01)
+        if(Math.random() < 0.002)
         {
             addObject(new DiamondRain(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+        if(Math.random() < 0.002)
+        {
+            addObject(new DiamondRainBlue(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+        if(Math.random() < 0.002)
+        {
+            addObject(new DiamondRainGreen(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+        if(Math.random() < 0.002)
+        {
+            addObject(new DiamondRainYellow(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
+        }
+        if(Math.random() < 0.002)
+        {
+            addObject(new DiamondRainRed(GRAVITY), Greenfoot.getRandomNumber(1200), -30);
         }
     }
 }
