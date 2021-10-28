@@ -19,7 +19,6 @@ public class Player extends Actor
     private boolean isJumping;
     private boolean isFacingLeft;
     private final GreenfootImage[] WALK_ANIMATION;
-    private final GreenfootImage[] MOVE_ANIMATION;
     private final GreenfootImage STANDING_IMAGE;
     private final float JUMP_FORCE;
     private final float GRAVITY;
@@ -47,12 +46,6 @@ public class Player extends Actor
                             new GreenfootImage("walk3.png"),
                             new GreenfootImage("walk4.png"),
                             new GreenfootImage("walk5.png")
-                        };
-        MOVE_ANIMATION = new GreenfootImage[]
-                        {
-                            new GreenfootImage("move0.png"),
-                            new GreenfootImage("move1.png"),
-                            new GreenfootImage("move2.png"),
                         };
     }
    
@@ -161,27 +154,14 @@ public class Player extends Actor
     frame++;
     }
     
-    private void rocketAnimator()
-    {
-        if(moveIndex < MOVE_ANIMATION.length)
-            {
-            setImage(MOVE_ANIMATION[moveIndex]);
-                moveIndex++;
-            }
-            else
-            {
-                moveIndex = 0;
-            }
-        frame++;
-    }
-    
     private void onCollision()
     {
         if(isTouching(Door.class))
         {
         MUSIC.stop();
-        rocketAnimator();
         World world = null;
+        Greenfoot.playSound("rocket-sound.mp3");
+        Greenfoot.playSound("liftoff-sound.mp3");
         try 
         {
             world = (World) NEXT_LEVEL.newInstance();
@@ -193,9 +173,6 @@ public class Player extends Actor
             System.out.println("Cannot access class constructor");
         } 
         Greenfoot.setWorld(world);
-        MUSIC.stop();
-        Greenfoot.playSound("rocket-sound.mp3");
-        Greenfoot.playSound("liftoff-sound.mp3");
         }
     
         if(isTouching(Obstacle.class))
